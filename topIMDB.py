@@ -22,6 +22,9 @@ if decision == "n":
 if decision == "y":
     print("Let's see...")
 
+
+"""     SELECT IMDB MOVIES    """
+
     # Select IMDB all-time top 100 & create beautifulsoup
     page = requests.get('https://www.imdb.com/list/ls055592025/')
     soup = BeautifulSoup(page.text, 'html.parser')
@@ -42,6 +45,30 @@ if decision == "y":
         filmName = film.prettify() # Format properly 
         IMDBlist.append(filmName.splitlines()[1]) 
         i = i + 1
+
+""" MOVIES FROM MY MOVIE BOWL 
+
+    Rain Man
+    The fountain 
+    old boy 
+    kuso 
+    the village 
+    airplane
+    crank 
+    weekend at bernies
+    good time 
+    django unchained 
+    hot tub time machine 
+    sixth sense
+    unbreakable
+    glass
+    big fish 
+    2001: 
+    a space odyssey
+    the godfather 
+"""
+
+    aidanList = ["", ""]
 
     randNum = randrange(0, 100, 2)
     print("You should watch" + IMDBlist[randNum] + "!")
