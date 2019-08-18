@@ -1,4 +1,5 @@
 import requests 
+from random import randrange
 from bs4 import BeautifulSoup
 
 """
@@ -8,35 +9,39 @@ Author: Aidan Hackett
 """
 print("Hello!")
 
-# decision = input("Would you like a movie suggestion? (yes/no): ")
+decision = input("Would you like a movie suggestion? (y/n): ")
 
-# # Validate input
-# while decision != "yes" and decision != "no":
-#     decision = input("yes or no?")
+# Validate input
+while decision != "y" and decision != "n":
+    decision = input("y or n?")
 
-# if decision == "no":
-#     print("bye!")
-#     quit
+if decision == "n":
+    print("bye!")
+    quit
 
-# if decision == "yes":
-#     print("fuck yeah")
+if decision == "y":
+    print("Let's see...")
 
-# Select IMDB all-time top 100 & create beautifulsoup
-page = requests.get('https://www.imdb.com/list/ls055592025/')
-soup = BeautifulSoup(page.text, 'html.parser')
+    # Select IMDB all-time top 100 & create beautifulsoup
+    page = requests.get('https://www.imdb.com/list/ls055592025/')
+    soup = BeautifulSoup(page.text, 'html.parser')
 
-# Extract h3 tag with titles
-film_list = soup.find_all(class_='lister-item-header') 
+    # Extract h3 tag with titles
+    film_list = soup.find_all(class_='lister-item-header') 
 
-for film in film_list:
+    i = 0
+    IMDBlist = [] 
     
-    film.span.decompose() # Remove index num
-    film.a.unwrap() # Remove a tags 
-    film.span.decompose() # Remove year 
+    # Add films to IMDBlist
+    for film in film_list:
+        
+        film.span.decompose() # Remove index num
+        film.a.unwrap() # Remove a tags 
+        film.span.decompose() # Remove year 
 
-    filmName = film.prettify() # Format properly 
-    print (filmName.splitlines()[1]) # Print title of film
+        filmName = film.prettify() # Format properly 
+        IMDBlist.append(filmName.splitlines()[1]) 
+        i = i + 1
 
-
-
-
+    randNum = randrange(0, 100, 2)
+    print("You should watch" + IMDBlist[randNum] + "!")
