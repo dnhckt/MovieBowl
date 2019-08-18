@@ -1,6 +1,6 @@
-MOVIE BOWL 
+Movie Bowl
 ==========
-Generate films to recommend to a user.
+A simple python program to generate film recommendations.
 
 topIMDB.py
 ===
