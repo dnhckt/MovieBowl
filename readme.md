@@ -12,6 +12,5 @@ Next
 ===
 c) Allow user to decline and select a new film<br>
 d) Add film bio <br>
-e) Allow choice from different lists <br>  
-    Validate between lists<br>
+e) Allow choice from different lists && validate between lists <br>
 f) Write to file films watched?
