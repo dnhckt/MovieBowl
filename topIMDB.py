@@ -1,4 +1,4 @@
-import requests 
+import requests
 from random import randrange
 from bs4 import BeautifulSoup
 
@@ -7,6 +7,7 @@ This program pulls the all-time top 100 imdb movies and prints them to the conso
 
 Author: Aidan Hackett
 """
+
 print("Hello!")
 
 decision = input("Would you like a movie suggestion? (y/n): ")
@@ -21,54 +22,35 @@ if decision == "n":
 
 if decision == "y":
     print("Let's see...")
-
-
 """     SELECT IMDB MOVIES    """
 
-    # Select IMDB all-time top 100 & create beautifulsoup
-    page = requests.get('https://www.imdb.com/list/ls055592025/')
-    soup = BeautifulSoup(page.text, 'html.parser')
+# Select IMDB all-time top 100 & create beautifulsoup
+page = requests.get('https://www.imdb.com/list/ls055592025/')
+soup = BeautifulSoup(page.text, 'html.parser')
 
-    # Extract h3 tag with titles
-    film_list = soup.find_all(class_='lister-item-header') 
+# Extract h3 tag with titles
+film_list = soup.find_all(class_='lister-item-header')
 
-    i = 0
-    IMDBlist = [] 
-    
-    # Add films to IMDBlist
-    for film in film_list:
-        
-        film.span.decompose() # Remove index num
-        film.a.unwrap() # Remove a tags 
-        film.span.decompose() # Remove year 
+i = 0
+IMDBlist = []
 
-        filmName = film.prettify() # Format properly 
-        IMDBlist.append(filmName.splitlines()[1]) 
-        i = i + 1
+# Add films to IMDBlist
+for film in film_list:
 
-""" MOVIES FROM MY MOVIE BOWL 
+	film.span.decompose() # Remove index num
+	film.a.unwrap() # Remove a tags 
+	film.span.decompose() # Remove year 
 
-    Rain Man
-    The fountain 
-    old boy 
-    kuso 
-    the village 
-    airplane
-    crank 
-    weekend at bernies
-    good time 
-    django unchained 
-    hot tub time machine 
-    sixth sense
-    unbreakable
-    glass
-    big fish 
-    2001: 
-    a space odyssey
-    the godfather 
-"""
+	filmName = film.prettify() # Format properly 
+	IMDBlist.append(filmName.splitlines()[1]) 
+	i = i + 1
 
-    aidanList = ["", ""]
+# My personal movie list
+aidanList = [" Rain Man", " The Fountain", " Old Boy", " Kuso", " The Village", " Airplane", " Crank", " Weekend At Bernie's", " Good Time",
+             " Django Unchained", " Hot Tub Time Machine", " Sixth Sense", " Unbreakable", " Glass", " Big Fish", " 2001: A Space Odyssey"]
 
-    randNum = randrange(0, 100, 2)
-    print("You should watch" + IMDBlist[randNum] + "!")
+movieList = IMDBlist + aidanList
+
+randNum = randrange(0, len(movieList), 2)
+print("You should watch" + movieList[randNum] + "!")
+
