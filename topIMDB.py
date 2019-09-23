@@ -22,6 +22,8 @@ if decision == "n":
 
 if decision == "y":
     print("Let's see...")
+
+
 """     SELECT IMDB MOVIES    """
 
 # Select IMDB all-time top 100 & create beautifulsoup
@@ -47,10 +49,22 @@ for film in film_list:
 
 # My personal movie list
 aidanList = [" Rain Man", " The Fountain", " Old Boy", " Kuso", " The Village", " Airplane", " Crank", " Weekend At Bernie's", " Good Time",
-             " Django Unchained", " Hot Tub Time Machine", " Sixth Sense", " Unbreakable", " Glass", " Big Fish", " 2001: A Space Odyssey"]
+             " Django Unchained", " Hot Tub Time Machine", " Sixth Sense", " Unbreakable", " Glass", " Big Fish", " 2001: A Space Odyssey", "Buster's Mal Heart"]
 
 movieList = IMDBlist + aidanList
 
 randNum = randrange(0, len(movieList), 2)
 print("You should watch" + movieList[randNum] + "!")
+
+decision = input("Sound good? (y/n): ")
+
+while decision != "y" and decision != "n":
+    decision = input("y or n?")
+
+if decision == "n":
+	randNum = randrange(0, len(movieList), 2)
+	print("Then you should watch" + movieList[randNum] + "! (y/n): ")
+
+print("bye!")
+quit
 
