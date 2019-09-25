@@ -17,3 +17,5 @@ d) Add film bio <br>
 e) Allow choice from different lists && validate between lists <br>
 f) Write to file films watched?
 g) allow custom adding to lists
+h) add button)
+i) improve gui 

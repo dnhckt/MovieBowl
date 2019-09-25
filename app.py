@@ -4,9 +4,6 @@ from bs4 import BeautifulSoup
 from flask import Flask, render_template
 app = Flask(__name__) 
 
-
-print("Hello!")
-
 """     SELECT IMDB MOVIES    """
 
 # Select IMDB all-time top 100 & create beautifulsoup
