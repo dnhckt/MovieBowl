@@ -56,15 +56,6 @@ movieList = IMDBlist + aidanList
 randNum = randrange(0, len(movieList), 2)
 print("You should watch" + movieList[randNum] + "!")
 
-decision = input("Sound good? (y/n): ")
-
-while decision != "y" and decision != "n":
-    decision = input("y or n?")
-
-if decision == "n":
-	randNum = randrange(0, len(movieList), 2)
-	print("Then you should watch" + movieList[randNum] + "! (y/n): ")
-
 print("bye!")
 quit
 
