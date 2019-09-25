@@ -2,7 +2,7 @@ Movie Bowl
 ==========
 A simple python program to generate film recommendations.
 
-Dependencies: requests, beautifulsoup4
+Dependencies: flask, requests, beautifulsoup4
 
 topIMDB.py
 ===
